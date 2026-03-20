@@ -10,8 +10,8 @@
  */
 public class Manajer extends Karyawan{
 
-    public Manajer(String id, String nama, String departemen, int gaji, int tunjangan, int lamaKerja, String posisi) {
-        super(id, nama, departemen, gaji, tunjangan, lamaKerja, posisi);
+    public Manajer(String id, String nama, String departemen, int gaji, int tunjangan, int lamaKerja, String posisi, String tipe) {
+        super(id, nama, departemen, gaji, tunjangan, lamaKerja, posisi, tipe);
     }
     
     public void lihatSemuaData() {
