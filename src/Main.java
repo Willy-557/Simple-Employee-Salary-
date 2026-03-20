@@ -134,7 +134,7 @@ public class Main {
                                 System.out.println("Divisi: ");
                                 String divisi = scanner.nextLine();
                                 
-                                manajer[ctr_manajer] = new Manajer(idManajer, nama, divisi, gaji, tunjangan, lamaKerja, posisi);
+                                manajer[ctr_manajer] = new Manajer(idManajer, nama, divisi, gaji, tunjangan, lamaKerja, posisi, "Manajer");
                                 System.out.println("Manajer " + nama + " {" + idManajer + ") berhasil ditambahkan!");
                                 ctr_manajer++;
                                 id_manajer++;
@@ -165,7 +165,7 @@ public class Main {
                                 System.out.println("Divisi: ");
                                 String divisi = scanner.nextLine();
                                 
-                                stafTetap[ctr_staf] = new StafTetap(idStaf, nama, divisi, gaji, tunjungan, lamaKerja, posisi);
+                                stafTetap[ctr_staf] = new StafTetap(idStaf, nama, divisi, gaji, tunjungan, lamaKerja, posisi, "Staf Tetap");
                                 System.out.println("Staf tetap " + nama + " {" + idStaf + ") berhasil ditambahkan!");
                                 ctr_staf++;
                                 id_staf++;
@@ -199,7 +199,7 @@ public class Main {
                                 System.out.println("Vendor: ");
                                 String vendor = scanner.nextLine();
                                 
-                                karyawanKontrak[ctr_karyawan] = new KaryawanKontrak(idkaryawan, nama, divisi, gaji, tunjungan, lamaKerja, posisi, vendor);
+                                karyawanKontrak[ctr_karyawan] = new KaryawanKontrak(vendor, idkaryawan, nama, divisi, gaji, tunjungan, lamaKerja, posisi, "Karyawan Kontrak");
                                 System.out.println("Karyawan Kontrak " + nama + " {" + idkaryawan + ") berhasil ditambahkan!");
                                 ctr_karyawan++;
                                 id_karyawan++;
