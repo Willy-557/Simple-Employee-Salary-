@@ -19,4 +19,11 @@ public class StafTetap  extends Karyawan{
     public void lihatSemuaData() {
         System.out.println("ID: " + getId() + " | " + getNama() + "      | Divisi: " + getDepartemen() + "   | Gaji: Rp " + getGaji() + "   (" + getPosisi() + ")");
     }
+
+    @Override
+    public void detailKaryawan() {
+        super.detailKaryawan(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }
