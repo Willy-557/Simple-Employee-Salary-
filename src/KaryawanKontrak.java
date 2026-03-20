@@ -20,5 +20,21 @@ public class KaryawanKontrak  extends Karyawan{
     public void lihatSemuaData() {
         System.out.println("ID: " + getId() + " | " + getNama() + "      | Vendor: " + vendor + "   | Gaji: Rp " + getGaji());
     }
+
+    @Override
+    public void detailKaryawan() {
+        super.detailKaryawan();
+        System.out.println("Vendor      : " + vendor);
+    }
+
+    public String getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(String vendor) {
+        this.vendor = vendor;
+    }
+    
+    
     
 }
