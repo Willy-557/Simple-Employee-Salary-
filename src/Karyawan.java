@@ -16,8 +16,9 @@ public class Karyawan {
     private int tunjangan;
     private int lamaKerja;
     private String posisi;
+    private String tipe;
 
-    public Karyawan(String id, String nama, String departemen, int gaji, int tunjangan, int lamaKerja, String posisi) {
+    public Karyawan(String id, String nama, String departemen, int gaji, int tunjangan, int lamaKerja, String posisi, String tipe) {
         this.id = id;
         this.nama = nama;
         this.departemen = departemen;
@@ -25,6 +26,18 @@ public class Karyawan {
         this.tunjangan = tunjangan;
         this.lamaKerja = lamaKerja;
         this.posisi = posisi;
+        this.tipe = tipe;
+    }
+    
+    public void detailKaryawan() {
+        System.out.println("ID          : " + id);
+        System.out.println("Nama        : " + nama);
+        System.out.println("Tipe        : " + tipe);
+        System.out.println("Divisi      : " + departemen);
+        System.out.println("Posisi      : " + posisi);
+        System.out.println("Gaji Pokok  : " + gaji);
+        System.out.println("Tunjangan   : " + tunjangan);
+        System.out.println("Lama Kerja  : " + lamaKerja);
     }
 
     public String getId() {
@@ -82,4 +95,5 @@ public class Karyawan {
     public void setPosisi(String posisi) {
         this.posisi = posisi;
     }
+    
 }
