@@ -23,6 +23,12 @@ public class Main {
         KaryawanKontrak[] karyawanKontrak = new KaryawanKontrak[10];
         StafTetap[] stafTetap = new StafTetap[10];
         
+        String[] ambilDivisi = new String[10];
+        int[] banyakDivisi = new int[10];
+        int[] totalGajiperDivisi = new int[10];
+        int ctr_divisi = 0;
+        
+        
         int ctr_manajer = 0;
         int ctr_staf = 0;
         int ctr_karyawan = 0;
@@ -85,6 +91,67 @@ public class Main {
                     System.out.println("Total karyawan : " + totalKaryawan);
                 }
                 else if (menu == 2) {
+                    System.out.println("=== CARI KARYAWAN ===");
+                    System.out.print("Masukkan ID Karyawan: ");
+                    String cariIDKaryawan = scanner.nextLine();
+                    
+                    StafTetap ditemukan1 = null;
+                    KaryawanKontrak ditemukan2 = null;
+                    Manajer ditemukan3 = null;
+                    
+                    int idxM = -1;
+                    int idxS = -1;
+                    int idxK = -1;
+
+                    
+                    for (int i = 0; i < ctr_manajer; i++) {
+                        if(manajer[i].getId().equals(cariIDKaryawan)) {
+                            ditemukan3 = manajer[i];
+                            idxM = i;
+                        }
+                    }
+                    
+                    if (ditemukan3 != null) {
+                        manajer[idxM].detailKaryawan();
+                    }
+                    else {
+                        for (int i = 0; i < ctr_karyawan; i++) {
+                            if(karyawanKontrak[i].getId().equals(cariIDKaryawan)) {
+                                ditemukan2 = karyawanKontrak[i];
+                                idxK = i;
+                            }
+                        }
+                    }
+                    
+                    if(ditemukan2 != null) {
+                        karyawanKontrak[idxK].detailKaryawan();
+                    }
+                    else {
+                        for (int i = 0; i < ctr_staf; i++) {
+                            if(stafTetap[i].getId().equals(cariIDKaryawan)) {
+                                ditemukan1 = stafTetap[i];
+                                idxS = i;
+                            }
+                        }
+                    }
+                    
+                    if(ditemukan1 != null) {
+                       stafTetap[idxS].detailKaryawan();
+                    }
+                    else {
+                        System.out.println("Karyawan dengan ID '" + cariIDKaryawan + "' tidak ditemuakan.");
+                    }
+                }
+                else if (menu == 3) {
+                    System.out.println("=== REKAP GAJI PER DIVISI ===");
+                    System.out.println("");
+                    int grandTotal = 0;
+                    for (int i = 0; i < ctr_divisi; i++) {
+                        System.out.println(ambilDivisi[i] + "    : Rp " + totalGajiperDivisi[i] + "   (" + banyakDivisi + " karyawan)");
+                        grandTotal += totalGajiperDivisi[i];
+                    }
+                    System.out.println("---------------------------------------");
+                    System.out.println("GRAND TOTAL : Rp " + grandTotal);
                     
                 }
                 else if (menu == 4) {
@@ -138,6 +205,26 @@ public class Main {
                                 System.out.println("Manajer " + nama + " {" + idManajer + ") berhasil ditambahkan!");
                                 ctr_manajer++;
                                 id_manajer++;
+                                
+                                if (ctr_divisi == 0) {
+                                    ambilDivisi[ctr_divisi] = divisi;
+                                    banyakDivisi[ctr_divisi] = 1;
+                                    totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                    ctr_divisi++;
+                                }
+                                for (int i = 0; i < ctr_divisi; i++) {
+                                    if(ambilDivisi[ctr_divisi].equals(divisi)) {
+                                        banyakDivisi[ctr_divisi] += 1;
+                                        totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
+                                        continue;
+                                    }
+                                    else {
+                                        ambilDivisi[ctr_divisi] = divisi;
+                                        banyakDivisi[ctr_divisi] = 1;
+                                        totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                        ctr_divisi++;
+                                    }
+                                }
                             }
                             else if (choice4 == 2) {
                                 System.out.println("=== INPUT DATA STAF TETAP ===");
@@ -152,7 +239,7 @@ public class Main {
                                 scanner.nextLine();
                                 
                                 System.out.print("Tunjangan: ");
-                                int tunjungan = scanner.nextInt();
+                                int tunjangan = scanner.nextInt();
                                 scanner.nextLine();
                                 
                                 System.out.println("Lama kerja: ");
@@ -165,10 +252,30 @@ public class Main {
                                 System.out.println("Divisi: ");
                                 String divisi = scanner.nextLine();
                                 
-                                stafTetap[ctr_staf] = new StafTetap(idStaf, nama, divisi, gaji, tunjungan, lamaKerja, posisi, "Staf Tetap");
+                                stafTetap[ctr_staf] = new StafTetap(idStaf, nama, divisi, gaji, tunjangan, lamaKerja, posisi, "Staf Tetap");
                                 System.out.println("Staf tetap " + nama + " {" + idStaf + ") berhasil ditambahkan!");
                                 ctr_staf++;
                                 id_staf++;
+                                
+                                if (ctr_divisi == 0) {
+                                    ambilDivisi[ctr_divisi] = divisi;
+                                    banyakDivisi[ctr_divisi] = 1;
+                                    totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                    ctr_divisi++;
+                                }
+                                for (int i = 0; i < ctr_divisi; i++) {
+                                    if(ambilDivisi[ctr_divisi].equals(divisi)) {
+                                        banyakDivisi[ctr_divisi] += 1;
+                                        totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
+                                        continue;
+                                    }
+                                    else {
+                                        ambilDivisi[ctr_divisi] = divisi;
+                                        banyakDivisi[ctr_divisi] = 1;
+                                        totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                        ctr_divisi++;
+                                    }
+                                }
                             }
                             else if (choice4 == 3) {
                                 System.out.println("=== INPUT DATA KARYAWAN KONTRAK ===");
@@ -183,7 +290,7 @@ public class Main {
                                 scanner.nextLine();
                                 
                                 System.out.print("Tunjangan: ");
-                                int tunjungan = scanner.nextInt();
+                                int tunjangan = scanner.nextInt();
                                 scanner.nextLine();
                                 
                                 System.out.println("Lama kerja: ");
@@ -199,10 +306,30 @@ public class Main {
                                 System.out.println("Vendor: ");
                                 String vendor = scanner.nextLine();
                                 
-                                karyawanKontrak[ctr_karyawan] = new KaryawanKontrak(vendor, idkaryawan, nama, divisi, gaji, tunjungan, lamaKerja, posisi, "Karyawan Kontrak");
+                                karyawanKontrak[ctr_karyawan] = new KaryawanKontrak(vendor, idkaryawan, nama, divisi, gaji, tunjangan, lamaKerja, posisi, "Karyawan Kontrak");
                                 System.out.println("Karyawan Kontrak " + nama + " {" + idkaryawan + ") berhasil ditambahkan!");
                                 ctr_karyawan++;
                                 id_karyawan++;
+                                
+                                if (ctr_divisi == 0) {
+                                    ambilDivisi[ctr_divisi] = divisi;
+                                    banyakDivisi[ctr_divisi] = 1;
+                                    totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                    ctr_divisi++;
+                                }
+                                for (int i = 0; i < ctr_divisi; i++) {
+                                    if(ambilDivisi[ctr_divisi].equals(divisi)) {
+                                        banyakDivisi[ctr_divisi] += 1;
+                                        totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
+                                        continue;
+                                    }
+                                    else {
+                                        ambilDivisi[ctr_divisi] = divisi;
+                                        banyakDivisi[ctr_divisi] = 1;
+                                        totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                        ctr_divisi++;
+                                    }
+                                }
                             }
                         }
                     }  
