@@ -12,8 +12,8 @@ public class KaryawanKontrak  extends Karyawan{
     
     private String vendor;
 
-    public KaryawanKontrak(String id, String nama, String departemen, int gaji, int tunjangan, int lamaKerja, String posisi, String vendor) {
-        super(id, nama, departemen, gaji, tunjangan, lamaKerja, posisi);
+    public KaryawanKontrak(String vendor, String id, String nama, String departemen, int gaji, int tunjangan, int lamaKerja, String posisi, String tipe) {
+        super(id, nama, departemen, gaji, tunjangan, lamaKerja, posisi, tipe);
         this.vendor = vendor;
     }
 
