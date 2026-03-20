@@ -82,7 +82,4 @@ public class Karyawan {
     public void setPosisi(String posisi) {
         this.posisi = posisi;
     }
-    
-    
-
 }
