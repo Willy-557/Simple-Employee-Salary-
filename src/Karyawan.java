@@ -38,6 +38,8 @@ public class Karyawan {
         System.out.println("Gaji Pokok  : " + gaji);
         System.out.println("Tunjangan   : " + tunjangan);
         System.out.println("Lama Kerja  : " + lamaKerja);
+        System.out.println("------------------------------------");
+        System.out.println("Total Gaji: " + totalGaji());
     }
 
     public String getId() {
@@ -95,5 +97,19 @@ public class Karyawan {
     public void setPosisi(String posisi) {
         this.posisi = posisi;
     }
+    
+    public int totalGaji() {
+        return gaji+tunjangan;
+    }
+
+    public String getTipe() {
+        return tipe;
+    }
+
+    public void setTipe(String tipe) {
+        this.tipe = tipe;
+    }
+    
+    
     
 }
