@@ -102,7 +102,6 @@ public class Main {
                     int idxM = -1;
                     int idxS = -1;
                     int idxK = -1;
-
                     
                     for (int i = 0; i < ctr_manajer; i++) {
                         if(manajer[i].getId().equals(cariIDKaryawan)) {
@@ -121,25 +120,23 @@ public class Main {
                                 idxK = i;
                             }
                         }
-                    }
-                    
-                    if(ditemukan2 != null) {
-                        karyawanKontrak[idxK].detailKaryawan();
-                    }
-                    else {
-                        for (int i = 0; i < ctr_staf; i++) {
-                            if(stafTetap[i].getId().equals(cariIDKaryawan)) {
-                                ditemukan1 = stafTetap[i];
-                                idxS = i;
+                        if(ditemukan2 != null) {
+                            karyawanKontrak[idxK].detailKaryawan();
+                        }
+                        else {
+                            for (int i = 0; i < ctr_staf; i++) {
+                                if(stafTetap[i].getId().equals(cariIDKaryawan)) {
+                                    ditemukan1 = stafTetap[i];
+                                    idxS = i;
+                                }
+                            }
+                            if(ditemukan1 != null) {
+                               stafTetap[idxS].detailKaryawan();
+                            }
+                            else {
+                                System.out.println("Karyawan dengan ID '" + cariIDKaryawan + "' tidak ditemukan.");
                             }
                         }
-                    }
-                    
-                    if(ditemukan1 != null) {
-                       stafTetap[idxS].detailKaryawan();
-                    }
-                    else {
-                        System.out.println("Karyawan dengan ID '" + cariIDKaryawan + "' tidak ditemuakan.");
                     }
                 }
                 else if (menu == 3) {
@@ -147,7 +144,7 @@ public class Main {
                     System.out.println("");
                     int grandTotal = 0;
                     for (int i = 0; i < ctr_divisi; i++) {
-                        System.out.println(ambilDivisi[i] + "    : Rp " + totalGajiperDivisi[i] + "   (" + banyakDivisi + " karyawan)");
+                        System.out.println(ambilDivisi[i] + "    : Rp " + totalGajiperDivisi[i] + "   (" + banyakDivisi[i] + " karyawan)");
                         grandTotal += totalGajiperDivisi[i];
                     }
                     System.out.println("---------------------------------------");
@@ -212,17 +209,19 @@ public class Main {
                                     totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
                                     ctr_divisi++;
                                 }
-                                for (int i = 0; i < ctr_divisi; i++) {
-                                    if(ambilDivisi[ctr_divisi].equals(divisi)) {
-                                        banyakDivisi[ctr_divisi] += 1;
-                                        totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
-                                        continue;
-                                    }
-                                    else {
-                                        ambilDivisi[ctr_divisi] = divisi;
-                                        banyakDivisi[ctr_divisi] = 1;
-                                        totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
-                                        ctr_divisi++;
+                                else {
+                                    for (int i = 0; i < ctr_divisi; i++) {
+                                        if(ambilDivisi[ctr_divisi].equals(divisi)) {
+                                            banyakDivisi[ctr_divisi] += 1;
+                                            totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
+                                            continue;
+                                        }
+                                        else {
+                                            ambilDivisi[ctr_divisi] = divisi;
+                                            banyakDivisi[ctr_divisi] = 1;
+                                            totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                            ctr_divisi++;
+                                        }
                                     }
                                 }
                             }
@@ -263,17 +262,19 @@ public class Main {
                                     totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
                                     ctr_divisi++;
                                 }
-                                for (int i = 0; i < ctr_divisi; i++) {
-                                    if(ambilDivisi[ctr_divisi].equals(divisi)) {
-                                        banyakDivisi[ctr_divisi] += 1;
-                                        totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
-                                        continue;
-                                    }
-                                    else {
-                                        ambilDivisi[ctr_divisi] = divisi;
-                                        banyakDivisi[ctr_divisi] = 1;
-                                        totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
-                                        ctr_divisi++;
+                                else {
+                                    for (int i = 0; i < ctr_divisi; i++) {
+                                        if(ambilDivisi[ctr_divisi].equals(divisi)) {
+                                            banyakDivisi[ctr_divisi] += 1;
+                                            totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
+                                            continue;
+                                        }
+                                        else {
+                                            ambilDivisi[ctr_divisi] = divisi;
+                                            banyakDivisi[ctr_divisi] = 1;
+                                            totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                            ctr_divisi++;
+                                        }
                                     }
                                 }
                             }
@@ -317,17 +318,19 @@ public class Main {
                                     totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
                                     ctr_divisi++;
                                 }
-                                for (int i = 0; i < ctr_divisi; i++) {
-                                    if(ambilDivisi[ctr_divisi].equals(divisi)) {
-                                        banyakDivisi[ctr_divisi] += 1;
-                                        totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
-                                        continue;
-                                    }
-                                    else {
-                                        ambilDivisi[ctr_divisi] = divisi;
-                                        banyakDivisi[ctr_divisi] = 1;
-                                        totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
-                                        ctr_divisi++;
+                                else {
+                                    for (int i = 0; i < ctr_divisi; i++) {
+                                        if(ambilDivisi[ctr_divisi].equals(divisi)) {
+                                            banyakDivisi[ctr_divisi] += 1;
+                                            totalGajiperDivisi[ctr_divisi] += (gaji + tunjangan);
+                                            continue;
+                                        }
+                                        else {
+                                            ambilDivisi[ctr_divisi] = divisi;
+                                            banyakDivisi[ctr_divisi] = 1;
+                                            totalGajiperDivisi[ctr_divisi] = gaji + tunjangan;
+                                            ctr_divisi++;
+                                        }
                                     }
                                 }
                             }
