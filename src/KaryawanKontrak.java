@@ -20,11 +20,19 @@ public class KaryawanKontrak  extends Karyawan{
     public void lihatSemuaData() {
         System.out.println("ID: " + getId() + " | " + getNama() + "      | Vendor: " + vendor + "   | Gaji: Rp " + getGaji());
     }
-
-    @Override
+    
     public void detailKaryawan() {
-        super.detailKaryawan();
+        System.out.println("ID          : " + getId());
+        System.out.println("Nama        : " + getNama());
+        System.out.println("Tipe        : " + getTipe());
         System.out.println("Vendor      : " + vendor);
+        System.out.println("Divisi      : " + getDepartemen());
+        System.out.println("Posisi      : " + getPosisi());
+        System.out.println("Gaji Pokok  : " + getGaji());
+        System.out.println("Tunjangan   : " + getTunjangan());
+        System.out.println("Lama Kerja  : " + getLamaKerja() + " tahun");
+        System.out.println("------------------------------------");
+        System.out.println("Total Gaji: " + totalGaji());
     }
 
     public String getVendor() {
