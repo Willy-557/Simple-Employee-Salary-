@@ -17,4 +17,11 @@ public class Manajer extends Karyawan{
     public void lihatSemuaData() {
         System.out.println("ID: " + getId() + " | " + getNama() + "      | Dept: " + getDepartemen() + "   | Gaji: Rp " + getGaji());
     }
+
+    @Override
+    public void detailKaryawan() {
+        super.detailKaryawan(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }
